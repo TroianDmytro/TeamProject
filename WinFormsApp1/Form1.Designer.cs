@@ -54,7 +54,7 @@
             // tB_distance
             // 
             tB_distance.Location = new Point(18, 45);
-            tB_distance.Margin = new Padding(4, 4, 4, 4);
+            tB_distance.Margin = new Padding(4);
             tB_distance.Name = "tB_distance";
             tB_distance.Size = new Size(325, 34);
             tB_distance.TabIndex = 1;
@@ -62,7 +62,7 @@
             // tB_averageFuelConsumption
             // 
             tB_averageFuelConsumption.Location = new Point(18, 127);
-            tB_averageFuelConsumption.Margin = new Padding(4, 4, 4, 4);
+            tB_averageFuelConsumption.Margin = new Padding(4);
             tB_averageFuelConsumption.Name = "tB_averageFuelConsumption";
             tB_averageFuelConsumption.Size = new Size(325, 34);
             tB_averageFuelConsumption.TabIndex = 3;
@@ -80,7 +80,7 @@
             // tB_costOfOneLiter
             // 
             tB_costOfOneLiter.Location = new Point(18, 207);
-            tB_costOfOneLiter.Margin = new Padding(4, 4, 4, 4);
+            tB_costOfOneLiter.Margin = new Padding(4);
             tB_costOfOneLiter.Name = "tB_costOfOneLiter";
             tB_costOfOneLiter.Size = new Size(325, 34);
             tB_costOfOneLiter.TabIndex = 5;
@@ -154,9 +154,10 @@
             Controls.Add(tB_distance);
             Controls.Add(lb_distance);
             Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
