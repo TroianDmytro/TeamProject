@@ -1,4 +1,5 @@
 using Calculation_of_fuel_consumption;
+using DayNight;
 
 namespace WinFormsApp1
 {
@@ -16,11 +17,26 @@ namespace WinFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (Class1.IsNight())
+            {
+                this.BackColor = Color.Black;
+                this.ForeColor = Color.DarkGreen;
+            }
         }
 
         private void btn_Enter_Click(object sender, EventArgs e)
         {
-           
+            if(double.TryParse(tB_distance.Text, out double distance) &&
+            double.TryParse(tB_averageFuelConsumption.Text, out double average) &&
+            double.TryParse(tB_costOfOneLiter.Text, out double oneLiter))
+            {
+                Fuel.GetFuelConsumption(distance,average,oneLiter);
+            }
+            else
+            {
+                MessageBox.Show("Data entry error");
+                return;
+            }
         }
 
         private void tB_distance_KeyPress(object sender, KeyPressEventArgs e)

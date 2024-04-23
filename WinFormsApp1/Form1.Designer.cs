@@ -43,6 +43,7 @@
             // 
             // lb_distance
             // 
+            lb_distance.Anchor = AnchorStyles.None;
             lb_distance.AutoSize = true;
             lb_distance.Location = new Point(18, 13);
             lb_distance.Margin = new Padding(4, 0, 4, 0);
@@ -53,6 +54,7 @@
             // 
             // tB_distance
             // 
+            tB_distance.Anchor = AnchorStyles.None;
             tB_distance.Location = new Point(18, 45);
             tB_distance.Margin = new Padding(4);
             tB_distance.Name = "tB_distance";
@@ -62,6 +64,7 @@
             // 
             // tB_averageFuelConsumption
             // 
+            tB_averageFuelConsumption.Anchor = AnchorStyles.None;
             tB_averageFuelConsumption.Location = new Point(18, 127);
             tB_averageFuelConsumption.Margin = new Padding(4);
             tB_averageFuelConsumption.Name = "tB_averageFuelConsumption";
@@ -71,6 +74,7 @@
             // 
             // lb_averageFuelConsumption
             // 
+            lb_averageFuelConsumption.Anchor = AnchorStyles.None;
             lb_averageFuelConsumption.AutoSize = true;
             lb_averageFuelConsumption.Location = new Point(18, 95);
             lb_averageFuelConsumption.Margin = new Padding(4, 0, 4, 0);
@@ -81,6 +85,7 @@
             // 
             // tB_costOfOneLiter
             // 
+            tB_costOfOneLiter.Anchor = AnchorStyles.None;
             tB_costOfOneLiter.Location = new Point(18, 207);
             tB_costOfOneLiter.Margin = new Padding(4);
             tB_costOfOneLiter.Name = "tB_costOfOneLiter";
@@ -90,6 +95,7 @@
             // 
             // lb_costOfOneLiter
             // 
+            lb_costOfOneLiter.Anchor = AnchorStyles.None;
             lb_costOfOneLiter.AutoSize = true;
             lb_costOfOneLiter.Location = new Point(18, 175);
             lb_costOfOneLiter.Margin = new Padding(4, 0, 4, 0);
@@ -100,6 +106,7 @@
             // 
             // btn_Enter
             // 
+            btn_Enter.Anchor = AnchorStyles.None;
             btn_Enter.Location = new Point(249, 264);
             btn_Enter.Name = "btn_Enter";
             btn_Enter.Size = new Size(94, 34);
@@ -110,6 +117,7 @@
             // 
             // lb_sumGrivna
             // 
+            lb_sumGrivna.Anchor = AnchorStyles.None;
             lb_sumGrivna.AutoSize = true;
             lb_sumGrivna.Location = new Point(462, 45);
             lb_sumGrivna.Name = "lb_sumGrivna";
@@ -119,6 +127,7 @@
             // 
             // tb_sumhrivna
             // 
+            tb_sumhrivna.Anchor = AnchorStyles.None;
             tb_sumhrivna.Enabled = false;
             tb_sumhrivna.Location = new Point(462, 82);
             tb_sumhrivna.Name = "tb_sumhrivna";
@@ -127,6 +136,7 @@
             // 
             // tb_sumdollar
             // 
+            tb_sumdollar.Anchor = AnchorStyles.None;
             tb_sumdollar.Enabled = false;
             tb_sumdollar.Location = new Point(462, 170);
             tb_sumdollar.Name = "tb_sumdollar";
@@ -135,6 +145,7 @@
             // 
             // lb_sumDolar
             // 
+            lb_sumDolar.Anchor = AnchorStyles.None;
             lb_sumDolar.AutoSize = true;
             lb_sumDolar.Location = new Point(462, 133);
             lb_sumDolar.Name = "lb_sumDolar";
