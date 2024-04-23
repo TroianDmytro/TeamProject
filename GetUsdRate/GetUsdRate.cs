@@ -1,18 +1,21 @@
-﻿namespace GetUsdRate
+﻿using Newtonsoft.Json;
+using System.Net;
+
+namespace GetUsdRate
 {
     public static class GetUsdRate
     {
         public static HttpClient _client;
 
-        public static async Task<decimal> ConvertToUSD(string priceUAH)
+        public static async Task<double> ConvertToUSD(string priceUAH)
         {
             try
             {
-                decimal usdRate = await GetUsdRateAPI();
+                double usdRate = await GetUsdRateAPI();
 
-                if (decimal.TryParse(priceUAH, out decimal priceUAHDecimal))
+                if (double.TryParse(priceUAH, out double priceUAHDecimal))
                 {
-                    decimal priceUSD = priceUAHDecimal / usdRate;
+                    double priceUSD = priceUAHDecimal / usdRate;
                     return priceUSD;
                 }
                 else
@@ -27,38 +30,59 @@
             }
         }
 
-        private static async Task<decimal> GetUsdRateAPI()
+        private static async Task<double> GetUsdRateAPI()
         {
-            decimal rate = 0;
+            double rate = 0;
             try
             {
-                HttpResponseMessage response = await _client.GetAsync("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5");
-
-                response.EnsureSuccessStatusCode();
-
-                string responseBody = await response.Content.ReadAsStringAsync();
-
-                string[] lines = responseBody.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string line in lines)
+                HttpResponseMessage response;
+                string responseBody = string.Empty;
+                response = await _client.GetAsync("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5");
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    if (line.Contains("USD"))
+                    response.EnsureSuccessStatusCode();
+                    responseBody = response.Content.ReadAsStringAsync().Result;
+                    dynamic usd = JsonConvert.DeserializeObject<dynamic>(responseBody);
+                    //decimal rate;
+                    foreach (var line in usd)
                     {
-                        string[] parts = line.Split(':');
-                        if (parts.Length >= 5)
+                        if (line.ccy == "USD")
                         {
-                            string rateString = parts[4].Trim().Replace(',', '.');
-                            if (decimal.TryParse(rateString, out rate))
-                                return rate;
+                            //Console.WriteLine(line.buy);
+                            string str = line.buy;
+                            str = str.Replace('.', ',');
+                            rate = double.Parse(str);
                         }
                     }
                 }
+                
+                //HttpResponseMessage response = await _client.GetAsync("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5");
+
+                //response.EnsureSuccessStatusCode();
+
+                //string responseBody = await response.Content.ReadAsStringAsync();
+
+                //string[] lines = responseBody.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                //foreach (string line in lines)
+                //{
+                //    if (line.Contains("USD"))
+                //    {
+                //        string[] parts = line.Split(':');
+                //        if (parts.Length >= 5)
+                //        {
+                //            string rateString = parts[4].Trim().Replace(',', '.');
+                //            if (decimal.TryParse(rateString, out rate))
+                //                return rate;
+                //        }
+                //    }
+                //}
                 //throw new Exception("Курс USD не найден в ответе API.");
             }
-            catch (HttpRequestException e)
+            catch (Exception)
             {
                 
             }
-            return 0;
+            return rate;
         }
 
 

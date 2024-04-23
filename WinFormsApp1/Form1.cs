@@ -7,7 +7,7 @@ namespace WinFormsApp1
     public partial class Form1 : Form
     {
         //private readonly HttpClient _client;
-
+        public double usd;
         public Form1()
         {
             InitializeComponent();
@@ -16,8 +16,9 @@ namespace WinFormsApp1
             GetUsdRate.GetUsdRate._client.BaseAddress = new Uri("https://api.privatbank.ua/");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
+            usd = await GetUsdRate.GetUsdRate.ConvertToUSD("1");
             if (Class1.IsNight())
             {
                 this.BackColor = Color.Black;
@@ -32,7 +33,8 @@ namespace WinFormsApp1
             double.TryParse(tB_costOfOneLiter.Text, out double oneLiter))
             {
                 tb_sumhrivna.Text =  Fuel.GetFuelConsumption(distance,average,oneLiter).ToString();
-                tb_sumdollar.Text = GetUsdRate.GetUsdRate.ConvertToUSD(tb_sumhrivna.Text).Result.ToString();
+                tb_sumdollar.Text = (double.Parse(tb_sumhrivna.Text)*usd).ToString("f2");
+
             }
             else
             {

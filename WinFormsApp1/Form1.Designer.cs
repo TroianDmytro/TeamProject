@@ -113,7 +113,7 @@
             btn_Enter.TabIndex = 6;
             btn_Enter.Text = "Enter";
             btn_Enter.UseVisualStyleBackColor = true;
-            btn_Enter.Click += btn_Enter_Click;
+            btn_Enter.Click += this.btn_Enter_Click;
             // 
             // lb_sumGrivna
             // 
