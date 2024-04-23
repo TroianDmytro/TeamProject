@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculation of fuel consump
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetUsdRate", "..\GetUsdRate\GetUsdRate.csproj", "{4E3C3C91-A03D-437F-828E-BA9F181BB746}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayNight", "..\DayNight\DayNight.csproj", "{9326F68B-9EE3-4302-99AA-8F5C06555C5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4E3C3C91-A03D-437F-828E-BA9F181BB746}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E3C3C91-A03D-437F-828E-BA9F181BB746}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E3C3C91-A03D-437F-828E-BA9F181BB746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9326F68B-9EE3-4302-99AA-8F5C06555C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9326F68B-9EE3-4302-99AA-8F5C06555C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9326F68B-9EE3-4302-99AA-8F5C06555C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9326F68B-9EE3-4302-99AA-8F5C06555C5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
