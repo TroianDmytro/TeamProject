@@ -58,6 +58,7 @@
             tB_distance.Name = "tB_distance";
             tB_distance.Size = new Size(325, 34);
             tB_distance.TabIndex = 1;
+            tB_distance.KeyPress += tB_distance_KeyPress;
             // 
             // tB_averageFuelConsumption
             // 
@@ -66,6 +67,7 @@
             tB_averageFuelConsumption.Name = "tB_averageFuelConsumption";
             tB_averageFuelConsumption.Size = new Size(325, 34);
             tB_averageFuelConsumption.TabIndex = 3;
+            tB_averageFuelConsumption.KeyPress += tB_averageFuelConsumption_KeyPress;
             // 
             // lb_averageFuelConsumption
             // 
@@ -84,6 +86,7 @@
             tB_costOfOneLiter.Name = "tB_costOfOneLiter";
             tB_costOfOneLiter.Size = new Size(325, 34);
             tB_costOfOneLiter.TabIndex = 5;
+            tB_costOfOneLiter.KeyPress += tB_costOfOneLiter_KeyPress;
             // 
             // lb_costOfOneLiter
             // 
@@ -103,6 +106,7 @@
             btn_Enter.TabIndex = 6;
             btn_Enter.Text = "Enter";
             btn_Enter.UseVisualStyleBackColor = true;
+            btn_Enter.Click += btn_Enter_Click;
             // 
             // lb_sumGrivna
             // 
@@ -115,6 +119,7 @@
             // 
             // tb_sumhrivna
             // 
+            tb_sumhrivna.Enabled = false;
             tb_sumhrivna.Location = new Point(462, 82);
             tb_sumhrivna.Name = "tb_sumhrivna";
             tb_sumhrivna.Size = new Size(125, 34);
@@ -122,6 +127,7 @@
             // 
             // tb_sumdollar
             // 
+            tb_sumdollar.Enabled = false;
             tb_sumdollar.Location = new Point(462, 170);
             tb_sumdollar.Name = "tb_sumdollar";
             tb_sumdollar.Size = new Size(125, 34);
