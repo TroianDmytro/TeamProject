@@ -2,7 +2,7 @@
 {
     public interface Fuel
     {
-        public double GetFuelConsumption(double km, double AvFuelCons, double costFuel)
+        public static double GetFuelConsumption(double km, double AvFuelCons, double costFuel)
         {
             return (km/AvFuelCons) * costFuel;
         }
