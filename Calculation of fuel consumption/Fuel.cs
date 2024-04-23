@@ -6,5 +6,6 @@
         {
             return (km/AvFuelCons) * costFuel;
         }
+        //made by Vitya :D
     }
 }
