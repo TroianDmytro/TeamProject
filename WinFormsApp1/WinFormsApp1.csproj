@@ -8,4 +8,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Calculation of fuel consumption\Calculation of fuel consumption.csproj" />
+    <ProjectReference Include="..\DayNight\DayNight.csproj" />
+    <ProjectReference Include="..\GetUsdRate\GetUsdRate.csproj" />
+  </ItemGroup>
+
 </Project>

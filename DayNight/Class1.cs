@@ -2,17 +2,15 @@
 {
     public static class Class1
     {
-        public static bool TimeDay()
+        public static bool IsNight()
         {
-            if (DateTime.Now.Hour > 6 && DateTime.Now.Hour < 20)
+            int hour = DateTime.Now.Hour;
+
+            if ((hour >= 0 && hour < 6) || ( hour > 19 && hour <= 23) )
             {
-                //
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }
