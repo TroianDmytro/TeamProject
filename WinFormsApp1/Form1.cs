@@ -1,18 +1,19 @@
 using Calculation_of_fuel_consumption;
 using DayNight;
+using GetUsdRate;
 
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        private readonly HttpClient _client;
+        //private readonly HttpClient _client;
 
         public Form1()
         {
             InitializeComponent();
 
-            _client = new HttpClient();
-            _client.BaseAddress = new Uri("https://api.privatbank.ua/");
+            GetUsdRate.GetUsdRate._client = new HttpClient();
+            GetUsdRate.GetUsdRate._client.BaseAddress = new Uri("https://api.privatbank.ua/");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,7 +31,8 @@ namespace WinFormsApp1
             double.TryParse(tB_averageFuelConsumption.Text, out double average) &&
             double.TryParse(tB_costOfOneLiter.Text, out double oneLiter))
             {
-                Fuel.GetFuelConsumption(distance,average,oneLiter);
+                tb_sumhrivna.Text =  Fuel.GetFuelConsumption(distance,average,oneLiter).ToString();
+                tb_sumdollar.Text = GetUsdRate.GetUsdRate.ConvertToUSD(tb_sumhrivna.Text).Result.ToString();
             }
             else
             {
@@ -41,7 +43,7 @@ namespace WinFormsApp1
 
         private void tB_distance_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (IsDouble(tB_distance.Text))
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == '.'))
             {
                 e.Handled = true;
             }
@@ -63,15 +65,16 @@ namespace WinFormsApp1
 
         private void tB_averageFuelConsumption_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (IsDouble(tB_averageFuelConsumption.Text))
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == '.'))
             {
                 e.Handled = true;
             }
+            
         }
 
         private void tB_costOfOneLiter_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (IsDouble(tB_costOfOneLiter.Text))
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == '.'))
             {
                 e.Handled = true;
             }
